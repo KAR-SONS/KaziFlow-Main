@@ -218,7 +218,7 @@ export default function KaziFlowStores() {
             <h3 className="text-xl font-semibold mb-3">Free</h3>
             <div className="mb-4">
               <span className="font-display text-4xl">KSh 0</span>
-              <span className="text-[#98a2b3] text-sm ml-1.5">forever</span>
+              <span className="text-[#98a2b3] text-md ml-2">forever</span>
             </div>
             <p className="text-[#98a2b3] text-md leading-relaxed mb-6">
               A simple storefront to get your products in front of more
@@ -269,7 +269,7 @@ export default function KaziFlowStores() {
             <h3 className="text-xl font-semibold mb-3">Premium</h3>
             <div className="mb-4">
               <span className="font-display text-4xl">KSh 150</span>
-              <span className="text-[#98a2b3] text-md ml-1.5">per month</span>
+              <span className="text-[#98a2b3] text-md ml-2">per month</span>
             </div>
             <p className="text-[#98a2b3] text-md leading-relaxed mb-6">
               A powerful, polished store for sellers ready to grow their
