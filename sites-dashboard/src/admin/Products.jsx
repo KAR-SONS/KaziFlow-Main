@@ -8,7 +8,7 @@ export function Products() {
   const { store } = useAuth();
   const limits = limitsFor(store.plan);
 
-  const [products, setProducts] = useState(null); // null = loading
+  const [products, setProducts] = useState(null);
   const [categories, setCategories] = useState([]);
   const [adding, setAdding] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -38,9 +38,6 @@ export function Products() {
   const atLimit = store.plan === "free" && products.length >= limits.maxProducts;
 
   async function handleCreate(payload) {
-    // Client-side check for a fast UI message — the Postgres trigger in
-    // schema-additions.sql is what actually enforces this, since a
-    // frontend-only app can't fully trust client-side checks.
     if (store.plan === "free" && products.length >= limits.maxProducts) {
       return {
         error: `Free plan is limited to ${limits.maxProducts} products. Upgrade to Premium for unlimited products.`,
@@ -80,6 +77,8 @@ export function Products() {
       .eq("id", product.id)
       .eq("store_id", store.id);
     setProducts((prev) => prev.filter((p) => p.id !== product.id));
+    // Note: this doesn't delete the product's images from storage — see
+    // the orphaned-files note in storage-setup.sql.
   }
 
   return (
@@ -121,6 +120,7 @@ export function Products() {
       {adding && (
         <div className="border border-white/10 bg-[#0d1420] rounded-xl p-5">
           <ProductForm
+            storeId={store.id}
             categories={categories}
             maxImages={limits.maxImagesPerProduct}
             onSubmit={handleCreate}
@@ -137,6 +137,7 @@ export function Products() {
               className="border border-white/10 bg-[#0d1420] rounded-xl p-5"
             >
               <ProductForm
+                storeId={store.id}
                 categories={categories}
                 maxImages={limits.maxImagesPerProduct}
                 product={product}
@@ -147,9 +148,16 @@ export function Products() {
           ) : (
             <div
               key={product.id}
-              className="border border-white/10 bg-[#0d1420] rounded-xl p-4 flex items-center justify-between"
+              className="border border-white/10 bg-[#0d1420] rounded-xl p-4 flex items-center gap-4"
             >
-              <div>
+              {product.image_urls?.[0] && (
+                <img
+                  src={product.image_urls[0]}
+                  alt=""
+                  className="w-12 h-12 rounded-lg object-cover border border-white/10 shrink-0"
+                />
+              )}
+              <div className="flex-1">
                 <p className="font-medium text-sm text-[#f3efe4]">
                   {product.name}
                   {!product.is_available && (
@@ -164,7 +172,7 @@ export function Products() {
                   {(product.image_urls?.length ?? 0) === 1 ? "" : "s"}
                 </p>
               </div>
-              <div className="flex gap-3 text-xs">
+              <div className="flex gap-3 text-xs shrink-0">
                 <button
                   onClick={() => setEditingId(product.id)}
                   className="text-[#dc9b5f]"

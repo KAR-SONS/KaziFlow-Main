@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { ImageUploader } from "./ImageUploader";
 
-export function ProductForm({ categories, maxImages, product, onSubmit, onCancel }) {
+export function ProductForm({ storeId, categories, maxImages, product, onSubmit, onCancel }) {
   const [error, setError] = useState(null);
   const [pending, setPending] = useState(false);
+  const [images, setImages] = useState(product?.image_urls ?? []);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -10,18 +12,12 @@ export function ProductForm({ categories, maxImages, product, onSubmit, onCancel
     setPending(true);
 
     const formData = new FormData(e.target);
-    const imageUrls = (formData.get("image_urls") || "")
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .slice(0, maxImages);
-
     const payload = {
       name: formData.get("name"),
       description: formData.get("description"),
       price: Number(formData.get("price")) || null,
       category_id: formData.get("category_id") || null,
-      image_urls: imageUrls,
+      image_urls: images,
       ...(product ? { is_available: formData.get("is_available") === "on" } : {}),
     };
 
@@ -32,7 +28,14 @@ export function ProductForm({ categories, maxImages, product, onSubmit, onCancel
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3 text-sm">
+    <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+      <ImageUploader
+        storeId={storeId}
+        value={images}
+        onChange={setImages}
+        maxImages={maxImages}
+      />
+
       <Field label="Product name" name="name" defaultValue={product?.name} required />
       <div>
         <label className="block text-xs font-medium text-[#98a2b3] mb-1">
@@ -73,18 +76,6 @@ export function ProductForm({ categories, maxImages, product, onSubmit, onCancel
             </select>
           </div>
         )}
-      </div>
-
-      <div>
-        <label className="block text-xs font-medium text-[#98a2b3] mb-1">
-          Image URLs (comma-separated, up to {maxImages})
-        </label>
-        <input
-          name="image_urls"
-          defaultValue={product?.image_urls?.join(", ") ?? ""}
-          placeholder="https://…, https://…"
-          className={inputClass}
-        />
       </div>
 
       {product && (
