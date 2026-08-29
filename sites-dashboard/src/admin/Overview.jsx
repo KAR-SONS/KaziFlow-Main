@@ -60,7 +60,7 @@ export function Overview() {
         </div>
       )}
 
-      <div className="border border-white/10 bg-[#0d1420] rounded-xl p-4 text-sm">
+      <div className="border border-white/10 bg-[#0d1420] rounded-xl p-4 text-md">
         <p className="font-semibold text-[#f3efe4] mb-1">Your store link</p>
         <a
           href={`https://${store.subdomain}.kaziflow.co.ke`}

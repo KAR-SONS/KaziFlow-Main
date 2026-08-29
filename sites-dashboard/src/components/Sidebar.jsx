@@ -9,10 +9,21 @@ const links = [
   { to: "/dashboard/settings", label: "Settings", premium: false },
 ];
 
-export function Sidebar({ plan }) {
+export function Sidebar({ plan, className, onClose }) {
+  const baseClasses = "shrink-0 border-r border-white/10 bg-[#0d1420] min-h-screen p-5 flex flex-col";
+  const widthClass = className && className.includes("w-") ? "" : "w-56";
   return (
-    <aside className="w-56 shrink-0 border-r border-white/10 bg-[#0d1420] min-h-screen p-5 flex flex-col">
-      <div className="font-semibold text-[#f3efe4] mb-8">
+    <aside className={`${widthClass} ${baseClasses} ${className ?? ""}`.trim()}>
+      {onClose && (
+        <button
+          onClick={onClose}
+          className="md:hidden absolute top-3 right-3 text-[#f3efe4] bg-transparent p-2"
+          aria-label="Close sidebar"
+        >
+          ✕
+        </button>
+      )}
+      <div className="font-semibold text-xl text-[#f3efe4] mb-8">
         Kazi<span className="text-[#dc9b5f]">Flow</span>
       </div>
 
@@ -48,7 +59,7 @@ export function Sidebar({ plan }) {
           href="https://wa.me/254700000000?text=Hi%2C%20I%20want%20to%20upgrade%20my%20KaziFlow%20store%20to%20Premium"
           target="_blank"
           rel="noopener noreferrer"
-          className="block bg-[#dc9b5f] text-[#0a0f1a] text-xs font-semibold text-center rounded-full py-2.5 mb-3 hover:bg-[#e5a86e] transition-colors"
+          className="block bg-[#dc9b5f] text-[#0a0f1a] text-sm font-semibold text-center rounded-full py-2.5 mb-3 hover:bg-[#e5a86e] transition-colors"
         >
           Upgrade to Premium →
         </a>
@@ -56,7 +67,7 @@ export function Sidebar({ plan }) {
 
       <button
         onClick={() => supabase.auth.signOut()}
-        className="text-xs text-[#6b7280] hover:text-[#98a2b3] text-left"
+        className="text-sm text-[#6b7280] hover:text-[#98a2b3] text-left"
       >
         Sign out
       </button>

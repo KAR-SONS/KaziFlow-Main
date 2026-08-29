@@ -94,7 +94,7 @@ export function Products() {
         {!adding && !atLimit && (
           <button
             onClick={() => setAdding(true)}
-            className="bg-[#dc9b5f] text-[#0a0f1a] text-xs font-semibold rounded-full px-4 py-2.5"
+            className="bg-[#dc9b5f] text-[#0a0f1a] text-sm font-semibold rounded-full px-4 py-2.5"
           >
             + Add product
           </button>
@@ -172,7 +172,7 @@ export function Products() {
                   {(product.image_urls?.length ?? 0) === 1 ? "" : "s"}
                 </p>
               </div>
-              <div className="flex gap-3 text-xs shrink-0">
+              <div className="flex gap-3 text-md shrink-0">
                 <button
                   onClick={() => setEditingId(product.id)}
                   className="text-[#dc9b5f]"
