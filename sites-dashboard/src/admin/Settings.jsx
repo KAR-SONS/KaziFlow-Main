@@ -155,7 +155,7 @@ export function Settings() {
         </div>
 
         <div className="pt-2 border-t border-white/10">
-          <p className="text-xs text-[#6b7280]">
+          <p className="text-md text-[#6b7280]">
             Store link:{" "}
             <span className="font-mono text-[#98a2b3]">
               {store.subdomain}.kaziflow.co.ke
@@ -167,7 +167,7 @@ export function Settings() {
         <button
           type="submit"
           disabled={status === "saving"}
-          className="bg-[#dc9b5f] text-[#0a0f1a] text-xs font-semibold rounded-full px-4 py-2.5 disabled:opacity-50"
+          className="bg-[#dc9b5f] text-[#0a0f1a] text-md font-semibold rounded-full px-4 py-2.5 disabled:opacity-50"
         >
           {status === "saving" ? "Saving…" : "Save changes"}
         </button>

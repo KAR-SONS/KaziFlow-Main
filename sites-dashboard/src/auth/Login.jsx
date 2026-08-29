@@ -77,7 +77,7 @@ export function Login() {
           <span className="block">
             Don't have a link yet?{" "}
             <a
-              href="https://wa.me/254700000000"
+              href="https://wa.me/254728482191?text=Hi%2C%20I%20want%20to%20create%20a%20KaziFlow%20store"
               className="underline text-[#98a2b3]"
               target="_blank"
               rel="noopener noreferrer"

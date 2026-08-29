@@ -70,9 +70,9 @@ function CategoriesManager({ storeId }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Shoes"
-          className="flex-1 bg-[#0a0f1a] border border-white/15 rounded-lg px-3 py-2 text-sm text-[#f3efe4] placeholder:text-[#4b5563] focus:outline-none focus:border-[#dc9b5f]"
+          className="flex-1 bg-[#0a0f1a] border border-white/15 rounded-lg px-3 py-2 text-md text-[#f3efe4] placeholder:text-[#4b5563] focus:outline-none focus:border-[#dc9b5f]"
         />
-        <button className="bg-[#dc9b5f] text-[#0a0f1a] text-xs font-semibold rounded-full px-4 py-2">
+        <button className="bg-[#dc9b5f] text-[#0a0f1a] text-sm font-semibold rounded-full px-4 py-2">
           Add
         </button>
       </form>
@@ -82,7 +82,7 @@ function CategoriesManager({ storeId }) {
         {categories.map((c) => (
           <div
             key={c.id}
-            className="flex items-center justify-between border border-white/10 bg-[#0d1420] rounded-lg px-4 py-2.5 text-sm text-[#f3efe4]"
+            className="flex items-center justify-between border border-white/10 bg-[#0d1420] rounded-lg px-4 py-2.5 text-md text-[#f3efe4]"
           >
             {c.name}
             <button

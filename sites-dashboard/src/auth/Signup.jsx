@@ -62,8 +62,7 @@ export function Signup() {
           <div className="text-sm text-[#dc9b5f] bg-[#dc9b5f]/10 border border-[#dc9b5f]/30 rounded-lg p-3 space-y-2">
             <p className="font-medium">Account created.</p>
             <p className="text-[#98a2b3]">
-              If email confirmation is required, check your inbox first.
-              Otherwise you can log in now — your dashboard will show a
+              Your dashboard will show a
               "no store yet" message until we finish setting up{" "}
               <span className="text-[#f3efe4]">{form.storeName}</span>.
             </p>

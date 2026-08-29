@@ -28,7 +28,7 @@ export function ProtectedRoute({ children }) {
               "Message us on WhatsApp to get your store set up."}
           </p>
           <a
-            href="https://wa.me/254700000000"
+            href="https://wa.me/254728482191?text=Hi%2C%20I%20want%20to%20create%20a%20KaziFlow%20store"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#dc9b5f] text-[#0a0f1a] font-semibold text-sm rounded-full px-5 py-2.5"

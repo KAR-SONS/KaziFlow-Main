@@ -56,7 +56,7 @@ export function Sidebar({ plan, className, onClose }) {
 
       {plan === "free" && (
         <a
-          href="https://wa.me/254700000000?text=Hi%2C%20I%20want%20to%20upgrade%20my%20KaziFlow%20store%20to%20Premium"
+          href="https://wa.me/254728482191?text=Hi%2C%20I%20want%20to%20upgrade%20my%20KaziFlow%20store%20to%20Premium"
           target="_blank"
           rel="noopener noreferrer"
           className="block bg-[#dc9b5f] text-[#0a0f1a] text-sm font-semibold text-center rounded-full py-2.5 mb-3 hover:bg-[#e5a86e] transition-colors"

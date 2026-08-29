@@ -106,7 +106,7 @@ export function Products() {
           You've reached the {limits.maxProducts}-product limit on the free
           plan.{" "}
           <a
-            href="https://wa.me/254700000000?text=Hi%2C%20I%20want%20to%20upgrade%20my%20KaziFlow%20store%20to%20Premium"
+            href="https://wa.me/254728482191?text=Hi%2C%20I%20want%20to%20upgrade%20my%20KaziFlow%20store%20to%20Premium"
             target="_blank"
             rel="noopener noreferrer"
             className="underline font-semibold text-[#dc9b5f]"

@@ -47,12 +47,12 @@ function AnalyticsPanel({ storeId }) {
   return (
     <div className="max-w-2xl space-y-6">
       <h2 className="font-semibold text-lg text-[#f3efe4]">Last 30 days</h2>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-col gap-6 ">
         <Stat label="Store views" value={counts.store_view} />
         <Stat label="Product views" value={counts.product_view} />
         <Stat label="WhatsApp clicks" value={counts.whatsapp_click} />
       </div>
-      <p className="text-xs text-[#6b7280]">
+      <p className="text-md text-[#6b7280]">
         Store views count each visit to your storefront. WhatsApp clicks
         count taps on "Order via WhatsApp" — your best signal of real buying
         interest.

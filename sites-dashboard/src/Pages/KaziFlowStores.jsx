@@ -15,7 +15,7 @@ import { useState } from "react";
  */
 
 const WHATSAPP_LINK =
-  "https://wa.me/254700000000?text=Hi%2C%20I%20want%20a%20KaziFlow%20store";
+  "https://wa.me/254728482191?text=Hi%2C%20I%20want%20a%20KaziFlow%20store";
 
 function Icon({ name, className = "w-4 h-4" }) {
   const icons = {
